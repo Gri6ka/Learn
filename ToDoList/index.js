@@ -20,14 +20,13 @@ document.getElementById('base').addEventListener('keypress', (e)=> {
             isUpperCase += arr.join('');    // массив переделываем в строку
             var div = document.createElement('div');    // создаем див
             div.align = 'center';
-            var span = document.createElement('span');  // создаем спан
+            var span = document.createElement('span');  // создаем спан его можно не создавать и значение вкидывать в кнопку, но пох :)
             var del = document.createElement('button');
             del.type = 'button';
             del.innerHTML = "Del";
-            del.onclick = function(){
+            del.onclick = function(){   // при нажатии на дел удаляется весь див и пересчитываются порядковые номера оставшихся строк
                 var count = parseInt(del.id.replace(/\D+/g,""));
                 document.body.removeChild(document.getElementById(count + '_div'));
-                // здесь нужно переписать все порядковые номера списка!!!!!
                 var content;
                 var contentId;
                 for (a = count; a < i; a++) {
@@ -46,7 +45,7 @@ document.getElementById('base').addEventListener('keypress', (e)=> {
             };
             var change = document.createElement('button');
             change.type = 'button';
-            change.onclick = function() {
+            change.onclick = function() { 
                 changeIdNumr = parseInt(change.id.replace(/\D+/g,""));
                 textString = document.getElementById(changeIdNumr + '_span').outerText;
                 textString = textString.replace(changeIdNumr,"");
